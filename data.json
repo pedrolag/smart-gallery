@@ -1,0 +1,39 @@
+{
+    "tags": [
+        {
+            "id": 0,
+            "name": "blue hair"
+        },
+        {
+            "id": 1,
+            "name": "green eyes"
+        },
+        {
+            "id": 2,
+            "name": "red lips"
+        }
+    ],
+    "images": [
+        {
+            "id": 0,
+            "name": "test",
+            "tags": [
+                0
+            ]
+        },
+        {
+            "id": 1,
+            "name": "test",
+            "tags": [
+                0
+            ]
+        },
+        {
+            "id": 2,
+            "name": "test",
+            "tags": [
+                0
+            ]
+        }
+    ]
+}
