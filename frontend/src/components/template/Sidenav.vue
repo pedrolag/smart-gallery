@@ -1,5 +1,5 @@
 <template>
-  <v-navigation-drawer app permanent nav>
+  <v-navigation-drawer app permanent>
     <v-list-item>
       <v-list-item-content>
         <v-list-item-title class="text-h6"> Application </v-list-item-title>
@@ -10,7 +10,12 @@
     <v-divider></v-divider>
 
     <v-list dense nav>
-      <v-list-item v-for="item in items" :key="item.title" :to="item.route">
+      <v-list-item
+        v-for="item in items"
+        :to="item.route"
+        active-class="primary white--text"
+        :key="item.title"
+      >
         <v-list-item-icon>
           <v-icon>{{ item.icon }}</v-icon>
         </v-list-item-icon>
