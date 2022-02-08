@@ -16,3 +16,23 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
+$router->group(['prefix' => '/api'], function () use ($router) {
+
+    $router->group(['prefix' => '/categories'], function () use ($router) {
+        $router->get('', 'CategoryController@getAll');
+        $router->get('{id}', 'CategoryController@getById');
+        $router->post('', 'CategoryController@create');
+        $router->put('{id}', 'CategoryController@update');
+        $router->delete('{id}', 'CategoryController@destroy');
+    });
+
+    $router->group(['prefix' => '/images'], function () use ($router) {
+        $router->get('', 'ImageController@getAll');
+        $router->get('{id}', 'ImageController@getById');
+        $router->post('', 'ImageController@create');
+        $router->put('{id}', 'ImageController@update');
+        $router->delete('{id}', 'ImageController@destroy');
+    });
+
+});
