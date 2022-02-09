@@ -3,19 +3,23 @@
 
     <p>gallery/index</p>
 
-    <ImageGrid :gallery="gallery"/>
+    <GalleryForm />
+    
+    <GalleryGrid :gallery="gallery"/>
 
   </v-container>
 </template>
 
 <script>
-import ImageGrid from "./../../components/gallery/ImageGrid.vue";
+import GalleryGrid from "../../components/gallery/GalleryGrid.vue";
+import GalleryForm from "../../components/gallery/GalleryForm.vue";
 
 export default {
   name: "Index",
 
   components: {
-    ImageGrid,
+    GalleryGrid,
+    GalleryForm,
   },
 
   data: () => ({

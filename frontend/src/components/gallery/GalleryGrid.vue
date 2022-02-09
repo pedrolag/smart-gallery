@@ -1,14 +1,11 @@
 <template>
-  <v-card
-    class="gallery-grid"
-    elevation="0"
-  >
+  <div class="gallery-grid">
     <v-row>
       <v-col
         v-for="image in gallery"
         :key="image.id"
-        class="d-flex child-flex"
-        cols="3"
+        class="d-flex child-flex pa-1"
+        cols="2"
       >
         <v-hover>
           <template v-slot:default="{ hover }">
@@ -41,7 +38,7 @@
         </v-hover>
       </v-col>
     </v-row>
-  </v-card>
+  </div>
 </template>
 
 <script>
@@ -64,8 +61,10 @@ export default {
 <style lang="scss" scoped>
 .gallery-grid {
 
+  padding: 24px 8px;
+
   .gallery-item {
-    border-radius: 12px;
+    border-radius: 0;
 
     &:hover {
       cursor: pointer;

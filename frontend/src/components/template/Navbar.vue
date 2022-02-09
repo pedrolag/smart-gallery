@@ -1,5 +1,6 @@
 <template>
   <v-app-bar app color="primary" dark flat>
+    <v-app-bar-nav-icon @click.stop="$emit('toggle-drawer')"></v-app-bar-nav-icon>
     <div class="d-flex align-center">
       <v-img
         alt="Vuetify Logo"
@@ -37,6 +38,7 @@
 export default {
   name: "Navbar",
   data: () => ({}),
+  methods: {}
 };
 </script>
 

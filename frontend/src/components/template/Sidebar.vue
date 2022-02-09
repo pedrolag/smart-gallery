@@ -1,5 +1,5 @@
 <template>
-  <v-navigation-drawer app permanent>
+  <v-navigation-drawer app v-model="drawer" absolute temporary>
     <v-list-item>
       <v-list-item-content>
         <v-list-item-title class="text-h6"> Application </v-list-item-title>
@@ -30,8 +30,9 @@
 
 <script>
 export default {
-  name: "Sidenav",
+  name: "Sidebar",
   data: () => ({
+    drawer: false,
     items: [
       {
         title: "Home",

@@ -1,7 +1,7 @@
 <template>
   <v-app>
-    <Navbar />
-    <Sidenav />
+    <Navbar @toggle-drawer="$refs.drawer.drawer = !$refs.drawer.drawer" />
+    <Sidebar ref="drawer" />
     <Main />
     <Footer />
   </v-app>
@@ -9,7 +9,7 @@
 
 <script>
 import Navbar from "./components/template/Navbar.vue";
-import Sidenav from "./components/template/Sidenav.vue";
+import Sidebar from "./components/template/Sidebar.vue";
 import Main from "./components/template/Main.vue";
 import Footer from "./components/template/Footer.vue";
 
@@ -18,13 +18,13 @@ export default {
 
   components: {
     Navbar,
-    Sidenav,
+    Sidebar,
     Main,
     Footer,
   },
 
   data: () => ({
-    //
+    toggleSidenav: false,
   }),
 };
 </script>
