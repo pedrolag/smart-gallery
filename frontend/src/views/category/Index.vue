@@ -1,58 +1,7 @@
 <template>
   <v-container>
-    <v-menu top :close-on-click="closeOnClick">
-      <template v-slot:activator="{ on, attrs }">
-        <!-- <v-btn
-          color="primary"
-          dark
-          v-bind="attrs"
-          v-on="on"
-          dense
-          flat
-          elevation="0"
-        >
-          Dropdown
-        </v-btn> -->
-        <v-chip color="category.color" label dark class="category-chip" v-bind="attrs"
-          v-on="on">
-          {{ category.name }}
-
-          <v-btn
-            icon
-            x-small
-            @click.native.stop="category.favorited = !category.favorited"
-            :class="{ favorited: category.favorited }"
-          >
-            <v-icon v-if="!category.favorited" color="grey">
-              mdi-star-outline
-            </v-icon>
-            <v-icon v-if="category.favorited" color="amber"> mdi-star </v-icon>
-          </v-btn>
-        </v-chip>
-      </template>
-
-      <v-list>
-        <v-list-item v-for="(item, index) in items" :key="index">
-          <v-list-item-title>{{ item.title }}</v-list-item-title>
-        </v-list-item>
-      </v-list>
-    </v-menu>
-
-    <!-- <v-chip color="category.color" label dark class="category-chip">
-      {{ category.name }}
-
-      <v-btn
-        icon
-        x-small
-        @click="category.favorited = !category.favorited"
-        :class="{ favorited: category.favorited }"
-      >
-        <v-icon v-if="!category.favorited" color="grey">
-          mdi-star-outline
-        </v-icon>
-        <v-icon v-if="category.favorited" color="amber"> mdi-star </v-icon>
-      </v-btn>
-    </v-chip> -->
+    
+    <CategoryChip :category="category" />
 
     <v-data-table
       :headers="headers"
@@ -112,8 +61,14 @@
 </template>
 
 <script>
+import CategoryChip from "./../../components/category/CategoryChip.vue";
+
 export default {
   name: "Index",
+
+  components: {
+    CategoryChip,
+  },
 
   data: () => ({
     category: {
@@ -126,6 +81,7 @@ export default {
     snackColor: "",
     snackText: "",
     max25chars: (v) => v.length <= 25 || "Input too long!",
+    
     headers: [
       { text: "Preview", align: "start", value: "id" },
       { text: "Category", align: "start", value: "name" },
@@ -181,27 +137,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.category-chip {
-  text-transform: uppercase;
-  font-size: 12px !important;
-  letter-spacing: 2px;
 
-  .v-btn {
-    margin-left: 0px;
-    display: none;
-
-    &.favorited {
-      margin-left: 8px;
-      display: flex;
-    }
-  }
-
-  &:hover {
-    .v-btn {
-      margin-left: 8px;
-      display: flex;
-    }
-  }
-}
-</style>
