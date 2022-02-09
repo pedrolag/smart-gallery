@@ -2,12 +2,15 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Model;
+
 class Image extends Model
 {
     protected $fillable = [
         'name',
         'description',
-        'favorited'
+        'favorited',
+        'url'
     ];
 
     protected $table = 'images';

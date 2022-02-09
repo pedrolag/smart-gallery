@@ -16,9 +16,10 @@ class CreateTableImages extends Migration
         Schema::create('images', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('description');
+            $table->string('description'); 
             $table->boolean('favorited')
                 ->default(false);
+            $table->string('url'); 
             $table->timestamps();
         });
     }
