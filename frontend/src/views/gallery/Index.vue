@@ -3,9 +3,9 @@
 
     <p>gallery/index</p>
 
-    <GalleryForm />
-    
-    <GalleryGrid :gallery="gallery"/>
+    <GalleryForm @store="getAll" />
+
+    <GalleryGrid :gallery="gallery" />
 
   </v-container>
 </template>

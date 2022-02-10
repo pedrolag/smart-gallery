@@ -62,7 +62,6 @@
 
           <v-text-field
             v-model="form.name"
-            prepend-icon="mdi-pencil"
             label="Name"
             outlined
             clearable
@@ -73,7 +72,6 @@
             v-model="form.description"
             label="Description"
             hint="Description of the selected image"
-            prepend-icon="mdi-pencil"
             outlined
           ></v-textarea>
 
@@ -122,19 +120,24 @@ export default {
     },
 
     store () {
-      this.axios
-        .post(
-          'http://localhost:8000/api/images',
-          this.form,
-          {
-            headers: {
-              'Content-Type': 'multipart/form-data'
-            }
-          }
-        )
-        .then(response => {
-          console.log(response);
-        });
+      var formData = new FormData();
+
+      formData.append('name', this.form.name);
+      formData.append('description', this.form.description);
+      formData.append('favorited', this.form.favorited);
+      formData.append('image', this.form.image);
+
+      this.axios({
+        method: "post",
+        url: "http://localhost:8000/api/images",
+        data: formData,
+        headers: { "Content-Type": "multipart/form-data" },
+      })
+      .then(() => {
+        this.$emit('store');
+
+        this.dialog = false;
+      });
     }
 
   }
