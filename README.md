@@ -20,7 +20,7 @@ For the **front-end** I've decided to stick with Vue CLI + Vuetify + SASS
 <a target="_blank" href="https://vuetifyjs.com/"><img alt="vuetify logo" src="https://img.shields.io/badge/Vuetify-1867C0?style=for-the-badge&logo=vuetify&logoColor=white" /></a>
 <a target="_blank" href="https://sass-lang.com/"><img alt="sass logo" src="https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white" /></a>
 
-As for the **back-end** I've created an REST API with Laravem/Lumen in PHP
+As for the **back-end** I've created an REST API with Laravel/Lumen in PHP
 
 <a target="_blank" href="https://www.php.net/"><img alt="php logo" src="https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white" /></a>
 <a target="_blank" href="https://laravel.com/docs"><img alt="laravel logo" src="https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white" /></a>
