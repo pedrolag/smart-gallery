@@ -38,43 +38,39 @@ class ImageController
     {
         $image = $request->file('image');
 
-        if ($request->hasFile('image')) {
-
-            $newImageName = $request->name . "." . $image->getClientOriginalExtension();
-
-            $newImageUrl = "http://localhost:8000/images/$newImageName";
-
-            $newImageFavorited = filter_var($request->favorited, FILTER_VALIDATE_BOOLEAN);
-
-            $image->move(
-                app()->basePath("public/$this->uploadFolderUrl"),
-                $newImageName
-            );
-
-            $newImage = [
-                "name" => $newImageName,
-                "description" => $request->description,
-                "favorited" => $newImageFavorited,
-                "url" => $newImageUrl
-            ];
-
-            Image::create($newImage);
-
+        if (!$request->hasFile('image')) {
             return response()
                 ->json(
-                    $newImage,
+                    "Invalid file.",
                     400
                 );
-
-        } else {
-
-            return response()
-                ->json(
-                    'Invalid file.',
-                    400
-                );
-
         }
+
+        $newImageName = $request->name . "." . $image->getClientOriginalExtension();
+
+        $newImageUrl = "http://localhost:8000/images/$newImageName";
+
+        $newImageFavorited = filter_var($request->favorited, FILTER_VALIDATE_BOOLEAN);
+
+        $image->move(
+            app()->basePath("public/$this->uploadFolderUrl"),
+            $newImageName
+        );
+
+        $newImage = [
+            "name" => $newImageName,
+            "description" => $request->description,
+            "favorited" => $newImageFavorited,
+            "url" => $newImageUrl
+        ];
+
+        Image::create($newImage);
+
+        return response()
+            ->json(
+                $newImage,
+                201
+            );
     }
 
     /**
