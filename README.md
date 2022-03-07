@@ -29,21 +29,37 @@ At last, for the **database** I've decided to use a MySQL database
 
 <a target="_blank" href="https://www.mysql.com/"><img alt="mysql logo" src="https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white" /></a>
 
-#### 🤔 How to make this thing work?
+#### 🤔 How to this thing?
 
+For the **front-end**, go into the `/frontend` directory and run
 ```
-// front-end
-...
-```
-
-```
-// back-end
-...
+npm install
 ```
 
+For the **back-end**, go into the `/backend` directory and run
 ```
-// database
-...
+composer install
 ```
 
+For the **database**, create a database in your MySQL Server called
+```
+smart_gallery
+```
+
+#### 🤔 Yeah, but how do I run the project?
+
+For the **front-end**, go into the `/frontend` directory and run
+```
+npm run serve
+```
+
+For the **back-end**, go into the `/backend` directory and run
+```
+composer serve
+```
+
+For the **database**, go into the `/backend` directory and run
+```
+composer orm:migrate
+```
 #
